@@ -1,0 +1,23 @@
+{
+  "name": "sitemanger-rest",
+  "version": "1.0.0",
+  "description": "Site Manager app REST API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "keywords": [
+    "Site",
+    "Manager"
+  ],
+  "author": "Dinesh Raja",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^4.13.5"
+  }
+}
