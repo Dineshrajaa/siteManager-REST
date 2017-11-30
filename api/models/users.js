@@ -36,6 +36,11 @@ UserSchema.virtual("isEngineer").get(() => {
     this.userType === "Engineer"
 })
 
+UserSchema.virtual("name.full").get(function () {
+    const last = (this.name.last === undefined || this.name.last === null) ? "" : this.name.last
+    return `${this.name.first}  ${last}`
+})
+
 UserSchema.pre('save', function (next) {
     // Encrypt PIN before saving
     var user = this;
@@ -47,4 +52,13 @@ UserSchema.pre('save', function (next) {
         next();
     })
 });
+
+UserSchema.methods.comparePin = function (pin, cb) {
+    bcrypt.compare(pin, this.pin, (err, isMatch) => {
+        if (err) {
+            return cb(err)
+        }
+        return cb(null, isMatch)
+    })
+}
 module.exports = mongoose.model("User", UserSchema);
