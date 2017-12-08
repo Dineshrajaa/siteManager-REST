@@ -11,6 +11,8 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use("/api/v1/", restRoutes);
 
-app.listen(port);
+app.listen(port, function () {
+    console.log("Express server listening on port %d ", this.address().port);
+});
 
 console.log('SiteManager REST running on: ', port);
