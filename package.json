@@ -14,7 +14,7 @@
   "author": "Dinesh Raja",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^1.12.1"
+    
   },
   "dependencies": {
     "bcrypt": "^1.0.3",
