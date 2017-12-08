@@ -1,5 +1,5 @@
 const express = require('express'),
-    config = require('./api/config')[process.env.NODE_ENV || "development"],
+    config = require('./api/config'),
     app = express(),
     mongoose = require("mongoose"),
     bodyParser = require("body-parser"),
