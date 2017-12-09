@@ -6,7 +6,7 @@ const express = require('express'),
     port = process.env.PORT || 3000,
     restRoutes = require("./api/controllers");
 mongoose.Promise = global.Promise;
-mongoose.connect(config.database);
+mongoose.connect(config.development.database);
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use("/api/v1/", restRoutes);
