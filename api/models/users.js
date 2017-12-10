@@ -28,7 +28,8 @@ const UserSchema = new Schema({
         required: true
     }, project: {
         type: Schema.Types.ObjectId,
-        ref: "Project"
+        ref: "Project",
+        required:false
     }
 })
 UserSchema.virtual("isAdmin").get(() => {

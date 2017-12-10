@@ -12,7 +12,8 @@ const ProjectSchema = new Schema({
         required: true
     }, engineerInCharge: {
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        required:false
     }
 });
 
