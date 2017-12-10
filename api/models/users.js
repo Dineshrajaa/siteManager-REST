@@ -1,5 +1,6 @@
 'use strict';
 const mongoose = require('mongoose');
+const Project = require('./projects');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 const UserSchema = new Schema({
@@ -25,6 +26,9 @@ const UserSchema = new Schema({
     }, pin: {
         type: String,
         required: true
+    }, project: {
+        type: Schema.Types.ObjectId,
+        ref: "Project"
     }
 })
 UserSchema.virtual("isAdmin").get(() => {
@@ -61,4 +65,7 @@ UserSchema.methods.comparePin = function (pin, cb) {
         return cb(null, isMatch)
     })
 }
+
+UserSchema.set("toJSON", { virtuals: true })
+UserSchema.set("toObject", { virtuals: true })
 module.exports = mongoose.model("User", UserSchema);
