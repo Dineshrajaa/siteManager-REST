@@ -10,11 +10,11 @@ const ProjectSchema = new Schema({
     location: {
         type: String,
         required: true
-    }, engineerInCharge: {
+    }, engineerInCharge: [{
         type: Schema.Types.ObjectId,
         ref: 'User',
-        required:false
-    }
+        required: false
+    }]
 });
 
 module.exports = mongoose.model("Project", ProjectSchema);
