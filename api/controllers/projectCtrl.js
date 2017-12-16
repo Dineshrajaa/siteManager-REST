@@ -34,5 +34,14 @@ module.exports = {
             .exec()
             .then(allProjects => res.json({ error: false, result: allProjects }))
             .catch(err => res.json({ error: true, reason: err.message }))
+    },
+    listMyProjects: (req, res) => {
+        const engineerID = req.params.engineerid;
+        Project
+            .find({ engineerInCharge: engineerID })
+            .populate({ path: 'engineerInCharge', select: 'name' })
+            .exec()
+            .then(allProjects => res.json({ error: false, result: allProjects }))
+            .catch(err => res.json({ error: true, reason: err.message }))
     }
 }

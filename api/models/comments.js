@@ -24,7 +24,7 @@ const CommentSchema = new Schema({
         type: Schema.Types.ObjectId,
         required: true,
         ref: 'User'
-    }
+    }, commentedDate: { type: Date, default: Date.now },
 });
 
 module.exports = mongoose.model("Comment", CommentSchema);

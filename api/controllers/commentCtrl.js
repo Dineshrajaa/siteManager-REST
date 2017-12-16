@@ -7,7 +7,6 @@ module.exports = {
         const commentObj = new Comment(requestData);
         return commentObj.save()
             .then((savedcomment) => {
-                console.log(savedcomment)
                 res.json({ error: false, detail: savedcomment })
             })
             .catch(err => res.json({ error: true, reason: err.message }))
